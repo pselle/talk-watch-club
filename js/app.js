@@ -45,3 +45,7 @@ const idx = moment().diff(week0, 'week');
 const talk = talks[idx];
 
 document.getElementById('video').appendChild(createVideoElement(talk));
+
+// Display a list of past talks and what's up next week,
+// If there's nothing up next week instruct people to make a PR
+// TODO make it easy to make a PR
