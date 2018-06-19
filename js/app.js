@@ -9,6 +9,9 @@ function getParameterByName(name, url) {
 function createVideoElement(talk) {
   const t = document.getElementById('videoTemplate');
   const clone = document.importNode(t.content, true);
+  // Add title
+  const title = clone.querySelector('h1')
+  title.textContent = talk.title;
 
   // Add blurb to bottom
   const blurb = clone.querySelector('p');
@@ -32,6 +35,7 @@ const talks = [
     blurb: "Aditya talks at Monitorama"
   },
   {
+    title: "UX for Cats and Dogs!",
     url: "https://www.youtube.com/watch?v=yRFQV4O0c48",
     blurb: "Only 10 minutes and with cute photos of cats involved."
   }
@@ -49,3 +53,7 @@ document.getElementById('video').appendChild(createVideoElement(talk));
 // Display a list of past talks and what's up next week,
 // If there's nothing up next week instruct people to make a PR
 // TODO make it easy to make a PR
+
+// Past talks link back to this page with the index in the query param of the page
+// Look up query param of page and use that to decide to show a specific talk,
+// Or this week's talk
