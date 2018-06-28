@@ -58,6 +58,11 @@ const week0 = new Date('June 18, 2018 00:00:00');
 const idx = moment().diff(week0, 'week');
 
 var talk = talks[idx];
+
+// Past talks link back to this page with the index in the query param of the page
+// Look up query param of page and use that to decide to show a specific talk,
+// Or this week's talk
+
 const queryParamVid = getParameterByName('video', window.location);
 if (queryParamVid) {
   talk = talks[Number(queryParamVid)];
@@ -73,12 +78,7 @@ populatePrevious(list, idx, talks);
 if (idx + 1 < talks.length) {
   console.log('something next week')
 } else {
-  console.log('nothing next week! make a PR!')
+  // If there's nothing up next week instruct people to make a PR
+  // TODO make it easy to make a PR
+  document.querySelector('#upcoming p').textContent = "Nothing up next week! Help!"
 }
-
-// If there's nothing up next week instruct people to make a PR
-// TODO make it easy to make a PR
-
-// Past talks link back to this page with the index in the query param of the page
-// Look up query param of page and use that to decide to show a specific talk,
-// Or this week's talk
