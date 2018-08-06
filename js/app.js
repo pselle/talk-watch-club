@@ -39,21 +39,9 @@ function populatePrevious(list, idx, talks) {
     list.appendChild(clone);
   }
 }
-const talks = [
-  {
-    title: "Aditya",
-    url: "https://vimeo.com/221049715",
-    blurb: "Aditya talks at Monitorama"
-  },
-  {
-    title: "UX for Cats and Dogs!",
-    url: "https://www.youtube.com/watch?v=yRFQV4O0c48",
-    blurb: "Only 10 minutes and with cute photos of cats involved."
-  }
-];
 
 // Week 0 is when AV club starts!
-const week0 = new Date('June 18, 2018 00:00:00');
+const week0 = new Date('August 8, 2018 00:00:00');
 // Get the index for the week
 const idx = moment().diff(week0, 'week');
 
@@ -71,14 +59,14 @@ if (queryParamVid) {
 document.getElementById('video').appendChild(createVideoElement(talk));
 
 // Print previous videos
-const list = document.querySelector('#past ol');
-populatePrevious(list, idx, talks);
+populatePrevious(document.querySelector('#past ol'), idx, talks);
 
 // What's up next week?
 if (idx + 1 < talks.length) {
-  console.log('something next week')
+  console.log('something next week');
+  document.querySelector('#upcoming p').textContent = talks[idx+1].title;
 } else {
   // If there's nothing up next week instruct people to make a PR
   // TODO make it easy to make a PR
-  document.querySelector('#upcoming p').textContent = "Nothing up next week! Help!"
+  document.querySelector('#upcoming p').textContent = "Nothing up next week! Help!";
 }

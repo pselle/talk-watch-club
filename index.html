@@ -1,9 +1,14 @@
 <!doctype html>
 <head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <h1>Tech Talk AV Club</h1>
-  <p>Every week, there's a new tech talk!</p>
+  <section>
+    <h1 id="main-title">Tech Talk AV Club</h1>
+    <p>Always feel like you never watch talk videos? There's so many!
+      This site pulls in a new video every week, so all you have to do is commit to come here,
+      and watch a talk and get inspired!</p>
+  </section>
   <section id="video"></section>
   <section id="upcoming">
     <h1>Up next week</h1>
@@ -11,10 +16,11 @@
   </section>
   <section id="past">
     <h1>Past talks</h1>
-    <p>AV club has been going since June 2018. Catching up? here are the previous weeks:</p>
+    <p>AV club has been going since August 2018. Catching up? here are the previous weeks:</p>
     <ol>
     </ol>
   </section>
+  <footer>Made with 💖 by Pam Selle, <a href="">contribute on GitHub</a><footer>
   <template id="videoTemplate">
     <iframe width="640" height="360" src="https://www.youtube.com/embed/yRFQV4O0c48" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     <h1></h1>
@@ -24,5 +30,6 @@
     <li><a href="/"></a></li>
   </template>
   <script src="js/moment.js"></script>
+  <script src="js/talks.js"></script>
   <script src="js/app.js"></script>
 </body>
