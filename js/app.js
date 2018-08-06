@@ -53,9 +53,12 @@ var talk = talks[idx];
 
 const queryParamVid = getParameterByName('video', window.location);
 if (queryParamVid) {
-  talk = talks[Number(queryParamVid)];
+  if (queryParamVid < 0 || queryParamVid > talks.length) {
+    console.log('HEY! That\s an invalid param. Booooooooo');
+  } else {
+    talk = talks[Number(queryParamVid)];
+  }
 }
-
 document.getElementById('video').appendChild(createVideoElement(talk));
 
 // Print previous videos
@@ -63,7 +66,6 @@ populatePrevious(document.querySelector('#past ol'), idx, talks);
 
 // What's up next week?
 if (idx + 1 < talks.length) {
-  console.log('something next week');
   document.querySelector('#upcoming p').textContent = talks[idx+1].title;
 } else {
   // If there's nothing up next week instruct people to make a PR
