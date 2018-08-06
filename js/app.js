@@ -64,6 +64,11 @@ document.getElementById('video').appendChild(createVideoElement(talk));
 // Print previous videos
 populatePrevious(document.querySelector('#past ol'), idx, talks);
 
+// Literally only need this the first week, first week, don't show previous weeks
+if(idx === 0) {
+  document.getElementById('past').style.display = 'none';
+}
+
 // What's up next week?
 if (idx + 1 < talks.length) {
   document.querySelector('#upcoming p').textContent = talks[idx+1].title;
