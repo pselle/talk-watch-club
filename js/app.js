@@ -62,7 +62,7 @@ if (queryParamVid) {
 document.getElementById('video').appendChild(createVideoElement(talk));
 
 // Print previous videos
-populatePrevious(document.querySelector('#past ol'), idx, talks);
+populatePrevious(document.querySelector('#past ul'), idx, talks);
 
 // Literally only need this the first week, first week, don't show previous weeks
 if(idx === 0) {
